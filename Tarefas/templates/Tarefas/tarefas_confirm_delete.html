@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<a href="{% url 'listatarefa' %}">Voltar</a>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <P>Certeza que deseja apagar a tarefa {{Tarefas.titulo}} ?</P>
+    <input type="submit" value="Confirm">
+
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}    
+        <a href="{% url 'criartarefa' %}">Nova tarefa.</a>
+        <h1>Tarefas</h1>
+        <table>
+            {% for t in Tarefas %}
+               <tr>
+                   <td>{{t.titulo}}</td>
+                   <td><a href="{% url 'detalhetarefa' t.pk %}">Detalhes</a></td>
+                   <td><a href="{% url 'editartarefa' t.pk %}">Editar</a></td>
+                   <td><a href="{% url 'apagartarefa' t.pk %}">Apagar</a></td>
+                </tr>
+            {% empty %}
+                <li>Todas as tarefas foram completadas.</li>
+            {% endfor %}
+        </table>
+            
+{% endblock %}
