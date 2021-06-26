@@ -1,6 +1,14 @@
 {% extends 'main.html' %}
 
-{% block content %}    
+{% block content %}
+        {%if request.user.is_authenticated %}
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+        {{request.user}}
+            
+        <hr>    
         <a href="{% url 'criartarefa' %}">Nova tarefa.</a>
         <h1>Tarefas</h1>
         <table>
