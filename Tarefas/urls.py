@@ -1,8 +1,9 @@
 from django.urls import path 
-from .views import TarefasDetail, TarefasList, TarefasCreate, TarefasUpdate, TarefasDelete, UsuarioLoginView
+from .views import TarefasDetail, TarefasList, TarefasCreate, TarefasUpdate, TarefasDelete, UsuarioLoginView, RegistrarFormView
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
+    path('registrar',RegistrarFormView.as_view(), name='registrar'),
     path('logout',LogoutView.as_view(next_page='login'), name='logout' ),
     path('login',UsuarioLoginView.as_view(), name='login'),
     path('', TarefasList.as_view(), name='listatarefa'),

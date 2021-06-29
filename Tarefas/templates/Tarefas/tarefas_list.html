@@ -6,21 +6,36 @@
         {% else %}
         <p><a href="{% url 'login' %}">Login</a></p>
         {% endif %}
-        {{request.user}}
+
+        <p>Olá, {{request.user|title}}</p>
             
         <hr>    
         <a href="{% url 'criartarefa' %}">Nova tarefa.</a>
-        <h1>Tarefas</h1>
+
+        <h1>Lista de tarefas</h1>
+        <form method="GET" >
+            <input type="text" name="area-de-procura" value="{{procura_input}}">
+            <input type="submit" value="Procurar" >
+        </form>
+        <br>
+        <h1>Tarefas: </h1>
+
         <table>
             {% for t in Tarefas %}
                <tr>
-                   <td>{{t.titulo}}</td>
+                {% if t.completa%}              
+                    <td>Completa</td>
+                    <td><s>{{t.titulo}}</s></td>
+                {% else %}
+                <td>Incompleta</td>
+                <td>{{t.titulo}}</td>
+                {% endif %}      
                    <td><a href="{% url 'detalhetarefa' t.pk %}">Detalhes</a></td>
                    <td><a href="{% url 'editartarefa' t.pk %}">Editar</a></td>
                    <td><a href="{% url 'apagartarefa' t.pk %}">Apagar</a></td>
                 </tr>
             {% empty %}
-                <li>Todas as tarefas foram completadas.</li>
+                <li>Não há tarefas pra serem mostradas.</li>
             {% endfor %}
         </table>
             
