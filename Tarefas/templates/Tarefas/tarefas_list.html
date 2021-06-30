@@ -1,42 +1,41 @@
-{% extends 'main.html' %}
-
+{% extends 'Tarefas/main.html' %}
 {% block content %}
-        {%if request.user.is_authenticated %}
-            <p><a href="{% url 'logout' %}">Logout</a></p>
-        {% else %}
-        <p><a href="{% url 'login' %}">Login</a></p>
-        {% endif %}
+        <div class="bar">
+            <div>
+                {%if request.user.is_authenticated %}
+                <p class="logout"><a href="{% url 'logout' %}"><button class="exitbutton">&#8617;</button></a></p>
+            {% else %}
+                <p><a href="{% url 'login' %}">Login</a></p>
+            {% endif %}
 
-        <p>Olá, {{request.user|title}}</p>
-            
-        <hr>    
-        <a href="{% url 'criartarefa' %}">Nova tarefa.</a>
-
-        <h1>Lista de tarefas</h1>
-        <form method="GET" >
-            <input type="text" name="area-de-procura" value="{{procura_input}}">
-            <input type="submit" value="Procurar" >
-        </form>
-        <br>
-        <h1>Tarefas: </h1>
-
-        <table>
-            {% for t in Tarefas %}
-               <tr>
-                {% if t.completa%}              
-                    <td>Completa</td>
-                    <td><s>{{t.titulo}}</s></td>
-                {% else %}
-                <td>Incompleta</td>
-                <td>{{t.titulo}}</td>
-                {% endif %}      
-                   <td><a href="{% url 'detalhetarefa' t.pk %}">Detalhes</a></td>
-                   <td><a href="{% url 'editartarefa' t.pk %}">Editar</a></td>
-                   <td><a href="{% url 'apagartarefa' t.pk %}">Apagar</a></td>
-                </tr>
-            {% empty %}
-                <li>Não há tarefas pra serem mostradas.</li>
-            {% endfor %}
-        </table>
+                <h1 class="title">Olá, {{request.user|title}}</h1>
+            </div>
+        </div>
+        <div class="Tarefalist">
+                <h1>Lista de tarefas</h1>
+                <a href="{% url 'criartarefa' %}">Nova tarefa.</a>
+                <form method="GET" >
+                    <input type="text" name="area-de-procura" value="{{procura_input}}">
+                    <input type="submit" value="Procurar" >
+                </form>
+                <h1>Tarefas: </h1>
+                {% for t in Tarefas %}
+                    <div class="div-tarefas">
+                        {% if t.completa %}
+                            <p class="tarefa-completa">&#10004;</p>
+                            <p><a href="{% url 'detalhetarefa' t.pk %}"><s>{{t.titulo}}</s></a></p>
+                        {% else %}
+                        <p class="tarefa-incompleta"></p>
+                        <p><a href="{% url 'detalhetarefa' t.pk %}">{{t.titulo}}</a></p>
+                        {% endif %}      
+                        <p><a href="{% url 'editartarefa' t.pk %}"><button class="detailbutton">Editar</button></a></p>
+                        <p><a href="{% url 'apagartarefa' t.pk %}"><button class="deletebutton">Apagar</button></a></p>  
+                    </div>
+                    {% empty %}                             
+                    <div>
+                        <p>Não há tarefas...</p>
+                    </div>          
+                {% endfor %}
+        </div>
             
 {% endblock %}
