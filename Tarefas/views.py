@@ -7,11 +7,11 @@ from  .models import Tarefas
 
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 
+#Login e validação de usuario
 class UsuarioLoginView(LoginView):
     template_name='Tarefas/login.html'
     fields = ['titulo', 'descricao', 'completa']
@@ -39,6 +39,7 @@ class RegistrarFormView(FormView):
             return redirect('listatarefa')
         return super(RegistrarFormView, self).get(*args, **kwargs)
 
+#Login e validação de usuario
 
 class TarefasList(LoginRequiredMixin,ListView):
     model = Tarefas
@@ -67,7 +68,7 @@ class TarefasDetail(LoginRequiredMixin,DetailView):
 
 class TarefasCreate(LoginRequiredMixin,CreateView):
     model = Tarefas
-    fields = ['titulo', 'descricao', 'completa']
+    fields = ['titulo', 'descricao',]
     success_url = reverse_lazy('listatarefa')
 
 

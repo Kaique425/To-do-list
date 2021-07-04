@@ -1,12 +1,23 @@
 {% extends 'Tarefas/main.html' %}
 
 {% block content %}
-<a href="{% url 'listatarefa' %}">Voltar</a>
+<div class="container">
+    <div class="header-bar">
+        <div>
+            <p class="logout"><a href="{% url 'listatarefa' %}"><button class="exitbutton">&#8617;</button></a></p>
+            <h1>Confirmar exclusão:</h1>
+        </div>
+    </div> 
 <form method="POST">
     {% csrf_token %}
     {{form}}
     <P>Certeza que deseja apagar a tarefa {{Tarefas.titulo}} ?</P>
-    <input type="submit" value="Confirmar">
+    <div class="box-button">
+          <input class="button" type="submit" value="Confirmar">
+    </div>
+  
 
 </form>
+</div>
+
 {% endblock %}

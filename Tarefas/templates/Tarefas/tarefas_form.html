@@ -1,7 +1,8 @@
 {% extends 'Tarefas/main.html' %}
 
 {% block content %}
-        <div class="header-bar" >
+<div class="container">
+    <div class="header-bar" >
                 <div>
                     {%if request.user.is_authenticated %}
                     <p class="logout"><a href="{% url 'listatarefa' %}"><button class="exitbutton">&#8617;</button></a></p>
@@ -12,12 +13,18 @@
                 {% if request.get_full_path == "/criar-tarefa" %}
                 <h1 class="title">Criar tarefa</h1>
                 {% else %}
+                
                 <h1 class="title">Editar tarefa:</h1>
                 {% endif %}
                 </div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input class="button" type="submit" value="Confirmar"> 
-    </form>
+                <form class="barra-pesquisa" method="POST" action="">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="box-button ">
+                        <input class="button" type="submit" value="Confirmar">
+                    </div>
+                    
+                </form>
+</div>
+        
 {% endblock %}

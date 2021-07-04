@@ -1,17 +1,22 @@
 {% extends 'Tarefas/main.html' %}
 {% block content %}
-   
-    <div class="header-bar" >
+    <div class="logincontainer">
+      <div class="header-bar" >
         <h1>Login</h1>
     </div>
     <form method="POST">
         
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Login">
+        <div class="box-button ">
+            <input class="button" type="submit" value="Login"> 
+        </div>
+       
 
     </form>
 
-    <p>Não tem uma conta ?<a href="{% url 'registrar' %}"> Registrar-se</a></p>
+    <p>Não tem uma conta ?<a href="{% url 'registrar' %}"> Registrar-se</a></p> 
+   </div>
+    
 
 {% endblock %}

@@ -1,23 +1,37 @@
 {% extends 'Tarefas/main.html' %}
 
 {% block content %}
-    <h1>Registrar</h1>
+    <div class="logincontainer" >
+        <div class="header-bar">
+            <div style="display: flex;display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+        ">
+            <h1>Registrar</h1>
+                        <p class="logout"><a href="{% url 'login' %}"><button class="exitbutton">&#8617;</button></a></p>
+            </div>
+            
+              
+        </div>
+        <form method="POST"> 
+            {% csrf_token %}
+            <label >{{form.username.label}}</label>
+                    {{form.username}}
 
-    <form method="POST"> 
-        {% csrf_token %}
-        <label >{{form.username.label}}</label>
-                {{form.username}}
+            <label >{{form.password1.label}}</label>
+            {{form.password1}}
 
-        <label >{{form.password1.label}}</label>
-        {{form.password1}}
+            <label >{{form.password2.label}}</label>
+            {{form.password2}}
+            <div class="box-button ">
+                <input class="button" type="submit" value="Login">
+            </div>
+        </form>
 
-        <label >{{form.password2.label}}</label>
-        {{form.password2}}
-       
-        <input type="submit" value="Login">
-
-    </form>
-
-    <p>Já tem uma conta ?<a href="{% url 'login' %}"> Logar</a></p>
+        <p>Já tem uma conta ?<a href="{% url 'login' %}"> Logar</a></p>
+    </div>
+    
 
 {% endblock %}
