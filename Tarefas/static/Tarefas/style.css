@@ -1,6 +1,6 @@
 .body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(232, 232, 232);
+    background-color: #FAFAFA;
     margin-top: 20px;
 }
 .container{
@@ -11,34 +11,82 @@
     border-radius: 10px;
     box-shadow:rgb(107 107 107) 1px 1px 20px 0px;
 }
+h1{
+    padding-left: 10px;
+}
+.button {
+    border: 1px solid #000000;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.button:hover{
+    transition:cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: white;
+    color: black;
+
+}
+input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid #757575;
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+/*LISTA DE TAREFAS*/
+.barra-pesquisa{
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    padding: 10px;
+    align-items: center;
+}
+.add-tarefa{
+    font-size: 40px;
+    color: green;
+    text-decoration: none;
+}
+.add-tarefa-link{
+    color: green;
+}
 
 .div-tarefas{
-
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
     justify-content: space-between;
+    background-color: #fff;
+    border-top: 1px solid #dfe4ea;
+    overflow: hidden;
+}
+.titulo-tarefa{
+    display: flex;
     align-items: center;
 }
 
-/*LISTA DE TAREFAS*/
 .tarefa-completa{
-    text-decoration: none;
+    margin-right: 10px;
     border-radius: 50%;
-    border-style: none;
-    padding: 8px;
-    font-weight: 700;
-    color: white;
+    height: 25px;
+    width: 25px;
     background-color: rgb(0, 172, 0);
 }
 .tarefa-incompleta{
     border-radius: 50%;
     background-color: grey;
-    padding: 15px;
-    font-weight: 900;
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
 }
 a{
+    text-decoration: none;
     color: rgb(0, 0, 0);
 }
 .logout{
@@ -50,12 +98,15 @@ a{
     color: white;
     margin:10px;
 }
-.bar{
-
+.header-bar{
+    
+    color: white;
+    height: 95px;
     background-color: #1F1F1F;
 }
 
 .Tarefalist{
+    padding: 0px;
     display: flex;
     flex-direction: column;
     height: fit-content;
@@ -66,6 +117,7 @@ a{
 .exitbutton{
     border-radius: 50%;
     background-color: white;
+    font-size: 22px;
     color:black;
     border-style: none;
 }
@@ -73,26 +125,20 @@ a{
     transition: cubic-bezier();
     background-color:rgb(174, 174, 174);
 }
-.detailbutton{
-    color: rgb(0, 0, 0);
-    border-radius: 5px;
-    border-style:solid ;
-    padding: 5px;
-    background-color: rgb(255, 255, 255);
-}
-.detailbutton:hover{
-    transition: cubic-bezier();
-    background-color: rgb(97, 97, 97);
-}
 .deletebutton{
-    color: rgb(0, 0, 0);
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    background-color: rgb(239, 0, 0);
+    color: rgb(220, 0, 0);
+    text-decoration: none;
+    font-size: 30px;
 }
-.deletebutton:hover{
-    transition: cubic-bezier();
-    background-color:rgb(164, 0, 0);
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 95vw;
+        color: rgb(0, 0, 0);
+        margin: auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow:rgb(107 107 107) 1px 1px 20px 0px;
+    }
 }
 /*LISTA DE TAREFAS*/
