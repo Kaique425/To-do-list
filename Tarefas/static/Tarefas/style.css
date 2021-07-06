@@ -8,7 +8,7 @@
     color: rgb(0, 0, 0);
     margin: auto;
     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 4px;
     box-shadow: black 1px 1px 20px 0px;
 }
 .logincontainer{
@@ -54,13 +54,24 @@ input[type=text],
 .barra-pesquisa{
     display: flex;
     padding: 5px;
-    justify-content: space-between;
     flex-wrap: wrap;
-    flex-direction: row;
-    align-content: flex-start;
+    flex-direction: column;
     padding: 10px;
-    align-items: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: center;
 }
+.barra-pesquisa-home {
+ display: flex;
+padding: 5px;
+flex-wrap: wrap;
+flex-direction: row;
+padding: 10px;
+align-items: center;
+justify-content: space-between;
+align-content: stretch;   
+}
+
 .add-tarefa{
     font-size: 40px;
     color: green;
@@ -111,7 +122,8 @@ a{
     margin:10px;
 }
 .header-bar{
-    
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     color: white;
     height: 105px;
     background-color: #1F1F1F;
@@ -149,7 +161,7 @@ a{
         color: rgb(0, 0, 0);
         margin: auto;
         background-color: rgb(255, 255, 255);
-        border-radius: 10px;
+        border-radius: 4px;
         box-shadow:rgb(107 107 107) 1px 1px 20px 0px;
     }
     .logincontainer{
