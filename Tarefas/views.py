@@ -16,7 +16,6 @@ class UsuarioLoginView(LoginView):
     template_name='Tarefas/login.html'
     fields = ['titulo', 'descricao', 'completa']
     redirect_authenticated_user = True 
-
     
     def get_success_url(self):
         return reverse_lazy('listatarefa')

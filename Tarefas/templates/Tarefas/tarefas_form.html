@@ -19,7 +19,10 @@
                 </div>
                 <form class="barra-pesquisa" method="POST" action="">
                     {% csrf_token %}
-                    {{form.as_p}}
+                    {{form.titulo.label}}
+                    {{form.titulo}}
+                    {{form.completa.label}}
+                    {{form.completa}}
                     <div class="box-button ">
                         <input class="button" type="submit" value="Confirmar">
                     </div>

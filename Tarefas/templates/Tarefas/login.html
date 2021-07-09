@@ -5,17 +5,18 @@
         <h1>Login</h1>
     </div>
     <form method="POST">
-        
         {% csrf_token %}
-        {{form.as_p}}
+        {{form.username.label}}
+        {{form.username}}
+        {{form.password.label}}
+        {{form.password}}
         <div class="box-button ">
             <input class="button" type="submit" value="Login"> 
         </div>
        
-
     </form>
 
-    <p>Não tem uma conta ?<a href="{% url 'registrar' %}"> Registrar-se</a></p> 
+    <p style="padding: 10px;">Não tem uma conta ?<a href="{% url 'registrar' %}"> Registrar-se</a></p> 
    </div>
     
 
